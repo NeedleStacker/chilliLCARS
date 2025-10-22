@@ -1,0 +1,79 @@
+/* ============================================================
+   CHILLI LCARS - dodatni stilovi i integracija
+   ============================================================ */
+
+/* Glavni sadržaj */
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: rgba(0,0,0,0.45);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  color: #fff;
+}
+
+/* LCARS header */
+.lcars-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  background: linear-gradient(90deg, #ffb366, #cc6600);
+  color: #000;
+  border-radius: 8px;
+  margin: 1rem;
+  text-transform: uppercase;
+}
+.lcars-label {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+}
+.lcars-sub {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* LCARS footer */
+.lcars-footer {
+  text-align: center;
+  margin: 2rem 1rem 3rem;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+/* Tweak linkova, tipki i inputa */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+a:hover, button:hover {
+  filter: brightness(1.2);
+}
+
+input, select, textarea {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #ffb366;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #fff;
+}
+
+button {
+  background: #ffb366;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  padding: 8px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:active {
+  background: #cc6600;
+}
+
+/* Naslovi */
+h1, h2, h3 {
+  color: #ffb366;
+  letter-spacing: 1px;
+}

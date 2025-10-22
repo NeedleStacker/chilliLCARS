@@ -1,0 +1,294 @@
+/* styles.css - Centralizirani i tematski stilovi */
+
+/* ==================================================================== */
+/* DEFINICIJE TEMA KROZ CSS VARIJABLE */
+/* ==================================================================== */
+
+/* 1. Svijetla (Light) Tema - Default */
+html[data-theme="light"] {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg-color: #ffffff;
+  --card-border-color: #dee2e6;
+  --table-header-bg-color: #e9ecef;
+  --table-header-text-color: #495057;
+  --table-stripe-color: #f2f2f2;
+  --unstable-row-color: #fff3cd;
+  --link-color: #0d6efd;
+  --accent-color: #0d6efd;
+  --danger-color: #dc3545;
+  --success-color: #198754;
+  --sensor-output-bg: #e9ecef; /* Usklađeno s input poljima */
+  --chart-bg-color: #ffffff; /* Pozadina grafa */
+  --relay1-color: #ffc107; /* Warning boja */
+  --relay2-color: #0dcaf0; /* Info boja */
+}
+
+/* 2. Tamna (Dark) Tema */
+html[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e9ecef;
+  --card-bg-color: #1e1e1e;
+  --card-border-color: #444;
+  --table-header-bg-color: #343a40;
+  --table-header-text-color: #f8f9fa;
+  --table-stripe-color: #2c3034;
+  --unstable-row-color: #665d3d;
+  --link-color: #6ea8fe;
+  --accent-color: #6ea8fe;
+  --danger-color: #f17c7c;
+  --success-color: #75b798;
+  --sensor-output-bg: #343a40; /* Usklađeno s input poljima */
+  --chart-bg-color: #2c3034; /* Tamnija pozadina grafa */
+  --relay1-color: #ffc107; /* Warning boja (ista kao light) */
+  --relay2-color: #0dcaf0; /* Info boja (ista kao light) */
+}
+
+/* 3. Jesenska (Autumn) Tema */
+html[data-theme="autumn"] {
+  --bg-color: #f4e3c1;        /* Svijetlo bež pozadina */
+  --text-color: #3e2f1c;      /* Tamno smeđi tekst */
+  --card-bg-color: #fffaf0;    /* Kremasta boja kartica */
+  --card-border-color: #d2b48c; /* Boja pijeska za obrube */
+  --table-header-bg-color: #c8a077; /* Topla smeđa za header */
+  --table-header-text-color: #ffffff; /* Bijeli tekst na headeru */
+  --table-stripe-color: #faebd7;  /* Svjetlija kremasta za pruge */
+  --unstable-row-color: #ffdab9;  /* Boja breskve za nestabilne redove */
+  --link-color: #8b4513;      /* Boja sedla za linkove */
+  --accent-color: #d2691e;    /* Čokoladna kao akcent */
+  --danger-color: #a0522d;      /* Sienna za opasnost */
+  --success-color: #556b2f;      /* Tamno maslinasta za uspjeh */
+  --sensor-output-bg: #faebd7; /* Usklađeno s prugama tablice */
+  --chart-bg-color: #fffaf0;    /* Kremasta boja kao pozadina grafa */
+  --relay1-color: #d2691e;    /* Čokoladna kao akcent */
+  --relay2-color: #556b2f;    /* Tamno maslinasta za drugi relej */
+}
+
+/* 4. Zimska (Winter) Tema */
+html[data-theme="winter"] {
+  --bg-color: #c0d9e9;        /* Intenzivnija svijetloplava pozadina */
+  --text-color: #06121c;      /* Dublja modra boja teksta */
+  --card-bg-color: #ffffff;    /* Čista bijela za 'ledeni' izgled */
+  --card-border-color: #8aa6c1; /* Jači obrubi za bolji kontrast */
+  --table-header-bg-color: #6b88a5; /* Hladnija, tamnija siva za header */
+  --table-header-text-color: #ffffff; /* Bijeli tekst na headeru */
+  --table-stripe-color: #d8ecf9;  /* Manje isprana ledeno plava za pruge */
+  --unstable-row-color: #b0dde4;  /* Zasićenija cijan boja */
+  --link-color: #0052a3;      /* Bogatija plava za linkove */
+  --accent-color: #0e7a8c;    /* Intenzivnija info plava kao akcent */
+  --danger-color: #dc3545;      /* Standardna crvena */
+  --success-color: #28a745;      /* Standardna zelena */
+  --sensor-output-bg: #d8ecf9; /* Usklađeno s prugama tablice */
+  --chart-bg-color: #ffffff;    /* Bijela pozadina grafa */
+  --relay1-color: #ffc107;      /* Žuta za Relej 1 */
+  --relay2-color: #148a9c;      /* Jača info plava za Relej 2 */
+}
+
+/* ==================================================================== */
+/* OSNOVNI STILOVI TIJELA I ELEMENATA */
+/* ==================================================================== */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    color: var(--text-color);
+}
+
+.form-control, .form-select {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+}
+.form-control:focus, .form-select:focus {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-color), 0.25);
+}
+
+pre, #sensorOutput {
+    background-color: var(--sensor-output-bg) !important; /* !important to override inline style */
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Stil za placeholder tekst da bude vidljiviji u svim temama */
+.form-control::placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+/* ==================================================================== */
+/* STILOVI TABLICA (s ljepljivim headerom) */
+/* ==================================================================== */
+
+.table-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    border: 1px solid var(--card-border-color);
+    border-radius: 6px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    /* Bootstrap Table Overrides */
+    --bs-table-color-type: initial;
+    --bs-table-bg-type: initial;
+    --bs-table-color-state: initial;
+    --bs-table-bg-state: initial;
+    --bs-table-color: var(--text-color);
+    --bs-table-bg: var(--card-bg-color);
+    --bs-table-border-color: var(--card-border-color);
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--text-color);
+    --bs-table-striped-bg: var(--table-stripe-color);
+    --bs-table-active-color: var(--text-color);
+    --bs-table-hover-color: var(--text-color);
+}
+
+html[data-theme="light"] .table {
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+}
+
+html[data-theme="dark"] .table {
+    --bs-table-active-bg: rgba(255, 255, 255, 0.1);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.075);
+}
+
+html[data-theme="autumn"] .table {
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+}
+
+.table th, .table td {
+    vertical-align: top;
+    border-top: 1px solid var(--card-border-color);
+    font-size: 0.85rem;
+    padding: 0.3rem; /* Smanjen padding za kompaktniji izgled */
+}
+
+.table thead th {
+    background-color: var(--table-header-bg-color);
+    color: var(--table-header-text-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid var(--card-border-color);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--table-stripe-color);
+}
+
+.unstable {
+  background-color: var(--unstable-row-color) !important;
+}
+
+/* ==================================================================== */
+/* STILOVI GRAFIKONA */
+/* ==================================================================== */
+
+canvas {
+  border: 1px solid var(--card-border-color);
+  border-radius: 6px;
+  /* Pozadina se sada kontrolira kroz Chart.js plugin i varijable */
+}
+
+#chart-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+#chart-wrap > div {
+    flex: 1;
+}
+
+/* ==================================================================== */
+/* NAVIGACIJSKA TRAKA I POZADINA */
+/* ==================================================================== */
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.navbar .container-fluid {
+    justify-content: space-between;
+}
+
+#btnPrevBg, #btnNextBg {
+    width: 30px; /* Fiksna širina za bolji izgled */
+}
+
+
+/* ==================================================================== */
+/* RESPONZIVNOST */
+/* ==================================================================== */
+@media (max-width: 768px) {
+  #chart-wrap {
+    flex-direction: column;
+  }
+  canvas {
+    width: 100% !important;
+    height: 200px !important;
+  }
+  .theme-switcher {
+      position: static;
+      margin-bottom: 15px;
+      text-align: center;
+  }
+}
+
+/* ==================================================================== */
+/* DODATNI STILOVI ZA SPECIFIČNE KOMPONENTE */
+/* ==================================================================== */
+
+/* Bojanje teksta releja u tablici događaja */
+.relay-1 {
+    color: var(--relay1-color) !important;
+    font-weight: bold;
+}
+
+.relay-2 {
+    color: var(--relay2-color) !important;
+    font-weight: bold;
+}
+
+/* Bojanje teksta statusa releja */
+.relay-1-text {
+    color: var(--relay1-color);
+    font-weight: bold;
+}
+
+.relay-2-text {
+    color: var(--relay2-color);
+    font-weight: bold;
+}
+
+/* Stilovi za status loggera */
+.active-status {
+    color: var(--success-color);
+    font-weight: bold;
+}
+.inactive-status {
+    color: var(--danger-color);
+    font-weight: bold;
+}
